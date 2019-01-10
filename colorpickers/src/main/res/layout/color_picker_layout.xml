@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorDark"
+    android:layout_marginEnd="40dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="40dp">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/color_preview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorDark"
+        android:padding="12dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="R"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/color_bar_red"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="255"
+                android:progress="0"
+                android:layout_weight="5"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/red_bar_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="255"
+                android:gravity="right"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:layout_weight="1"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="G"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/color_bar_green"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="255"
+                android:progress="0"
+                android:layout_weight="5"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/green_bar_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="255"
+                android:gravity="right"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:layout_weight="1"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="B"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/color_bar_blue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="255"
+                android:progress="0"
+                android:layout_weight="5"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/blue_bar_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="255"
+                android:gravity="right"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:layout_weight="1"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDark"
+        android:padding="12dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="CANCEL"
+            android:background="@android:color/transparent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="OK"
+            android:background="@android:color/transparent"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
