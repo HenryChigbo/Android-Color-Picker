@@ -11,9 +11,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSeekBar;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.LinearLayoutCompat;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
 
@@ -23,27 +20,14 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
 
     private AlertDialog alertDialog;
 
-    @BindView(R.id.color_preview)
-    LinearLayoutCompat colorPreview;
 
-    @BindView(R.id.red_bar_count)
-    AppCompatTextView redBarCount;
+    private LinearLayoutCompat colorPreview;
 
-    @BindView(R.id.green_bar_count)
-    AppCompatTextView greenBarCount;
+    AppCompatTextView redBarCount, greenBarCount, blueBarCount;
 
-    @BindView(R.id.blue_bar_count)
-    AppCompatTextView blueBarCount;
-
-    @BindView(R.id.ok_button)
-    AppCompatButton okButton;
-
-    @BindView(R.id.cancel_button)
-    AppCompatButton cancelButton;
-
+    AppCompatButton okButton, cancelButton;
 
     private int redValue, greenValue, blueValue = 0;
-
 
     AppCompatSeekBar redSeekBar, greenSeekBar, blueSeekBar;
 
@@ -57,7 +41,7 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
     public ColorPicker(Context context) {
         this.context = context;
         colorConverter = new ColorConverter(context);
-        currentColor = R.color.colorPrimary;
+        currentColor = R.color.colorBackground;
         initColorPicker();
     }
 
@@ -66,7 +50,12 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         View view = LayoutInflater.from(context).inflate(R.layout.color_picker_layout, null);
         builder.setView(view);
-        ButterKnife.bind(this, view);
+
+        colorPreview = (LinearLayoutCompat) view.findViewById(R.id.color_preview);
+
+        redBarCount = (AppCompatTextView)view.findViewById(R.id.red_bar_count);
+        greenBarCount = (AppCompatTextView)view.findViewById(R.id.green_bar_count);
+        blueBarCount = (AppCompatTextView)view.findViewById(R.id.blue_bar_count);
 
         redSeekBar = (AppCompatSeekBar)view.findViewById(R.id.color_bar_red);
         greenSeekBar = (AppCompatSeekBar)view.findViewById(R.id.color_bar_green);
@@ -78,6 +67,24 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
 
         builder.setCancelable(false);
         alertDialog = builder.create();
+
+        okButton = (AppCompatButton) view.findViewById(R.id.ok_button);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onColorSelectChangeListener.onColorChange(currentColor);
+                alertDialog.dismiss();
+            }
+        });
+
+
+        cancelButton = (AppCompatButton)view.findViewById(R.id.cancel_button);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
     }
 
 
@@ -100,22 +107,20 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         Log.d(TAG, "Log progress " + progress);
         int id = ((SeekBar)seekBar).getId();
-        switch (id){
-            case R.id.color_bar_red:
-                redValue = progress;
-                break;
-            case R.id.color_bar_green:
-                greenValue = progress;
-                break;
-            case R.id.color_bar_blue:
-                blueValue = progress;
-                break;
+        if(id == R.id.color_bar_red){
+            redValue = progress;
+        }
+        if(id == R.id.color_bar_green){
+            greenValue = progress;
+        }
+        if(id == R.id.color_bar_blue){
+            blueValue = progress;
         }
         currentColor = colorConverter.convertIntValuesToColor(redValue, greenValue, blueValue);
         Log.d(TAG, "Log current color " + progress);
         setDefaultColor(currentColor);
-
     }
+
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -124,19 +129,6 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-    }
-
-
-    @OnClick(R.id.ok_button)
-    public void onOkButtonClick(View view){
-        onColorSelectChangeListener.onColorChange(currentColor);
-        alertDialog.dismiss();
-    }
-
-
-    @OnClick(R.id.cancel_button)
-    public void onCancelButtonClick(View view){
-        alertDialog.dismiss();
     }
 
 

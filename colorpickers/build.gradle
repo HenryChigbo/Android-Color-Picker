@@ -31,10 +31,6 @@ ext {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    //View binding
-    api "com.jakewharton:butterknife:$butterKnifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
-
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
