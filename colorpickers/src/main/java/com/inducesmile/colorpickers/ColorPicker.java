@@ -40,7 +40,7 @@ public class ColorPicker implements SeekBar.OnSeekBarChangeListener{
 
     public ColorPicker(Context context) {
         this.context = context;
-        colorConverter = new ColorConverter(context);
+        colorConverter = new ColorConverter();
         currentColor = R.color.colorBackground;
         initColorPicker();
     }

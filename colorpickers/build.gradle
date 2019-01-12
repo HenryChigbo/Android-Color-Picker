@@ -1,9 +1,19 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+
+publish {
+    userOrg = 'henrychigbo'
+    groupId = 'com.inducesmile.colorpickers'
+    artifactId = 'ColorPicker'
+    publishVersion = '0.1.0'
+    repoName = 'AndroidColorPicker'
+    desc = 'A simple android color picker library'
+    website = 'https://github.com/HenryChigbo/Android-Color-Picker'
+}
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 19
@@ -36,3 +46,4 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
+

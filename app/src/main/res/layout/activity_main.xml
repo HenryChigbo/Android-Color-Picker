@@ -12,8 +12,9 @@
         android:id="@+id/open_color_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:padding="16dp"
         android:text="@string/open_color_picker"
+        android:textColor="@color/colorWhite"
         android:background="@color/colorAccent"/>
 
 
@@ -22,7 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Change Text Color" />
+        android:textSize="22sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/change_text_color" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

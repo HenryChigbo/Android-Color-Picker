@@ -1,18 +1,10 @@
 package com.inducesmile.colorpickers;
 
-import android.content.Context;
 import android.graphics.Color;
 
 public class ColorConverter {
 
     private static final String TAG = ColorConverter.class.getSimpleName();
-
-    private Context context;
-
-
-    public ColorConverter(Context context) {
-        this.context = context;
-    }
 
 
     public int convertIntValuesToColor(int redColor, int greenColor, int blueColor){

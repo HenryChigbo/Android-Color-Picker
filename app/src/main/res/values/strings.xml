@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ColorPicker</string>
     <string name="open_color_picker">Open Color Picker</string>
+    <string name="change_text_color">Change Text Color</string>
 </resources>
