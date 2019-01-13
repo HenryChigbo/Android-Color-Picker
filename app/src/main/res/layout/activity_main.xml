@@ -26,6 +26,10 @@
         android:textSize="22sp"
         android:textColor="@color/colorBlack"
         android:text="@string/change_text_color" />
+    
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
